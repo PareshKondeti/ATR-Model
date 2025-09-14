@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ATR Modal - Phase 1</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <main class="page">
+        <h1>Audio Training & Response (ATR)</h1>
+        <button id="openModalBtn" class="btn-primary">Open ATR</button>
+    </main>
+
+    <!-- Modal Overlay -->
+    <div id="atrModal" class="modal" aria-hidden="true" role="dialog" aria-labelledby="atrModalTitle">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__dialog" role="document">
+            <header class="modal__header">
+                <h2 id="atrModalTitle">ATR Console</h2>
+                <button id="closeModalBtn" class="modal__close" aria-label="Close" title="Close">×</button>
+            </header>
+
+            <nav class="tabs" role="tablist">
+                <button class="tab tab--active" data-tab="upload" role="tab" aria-selected="true">Upload</button>
+                <button class="tab" data-tab="training" role="tab" aria-selected="false">Training</button>
+                <button class="tab" data-tab="interaction" role="tab" aria-selected="false">Interaction</button>
+                <button class="tab" data-tab="response" role="tab" aria-selected="false">Response</button>
+            </nav>
+
+            <section class="tabpanels">
+                <!-- Upload Section -->
+                <div class="tabpanel tabpanel--active" data-panel="upload" role="tabpanel" aria-labelledby="tab-upload">
+                    <div class="section">
+                        <label for="audioFile" class="label">Select audio file (.mp3, .wav, .m4a)</label>
+                        <input id="audioFile" type="file" accept=".mp3,.wav,.m4a">
+                        <div id="fileInfo" class="file-info" aria-live="polite">No file chosen.</div>
+                        <button id="uploadBtn" class="btn-primary" style="margin-top: 10px;">Upload File</button>
+                    </div>
+                    <div class="section">
+                        <audio id="uploadAudio" controls preload="metadata"></audio>
+                    </div>
+                </div>
+
+                <!-- Training Section -->
+                <div class="tabpanel" data-panel="training" role="tabpanel" aria-labelledby="tab-training">
+                    <div class="section">
+                        <h3>Training Options</h3>
+                        <div class="training-buttons">
+                            <button id="startRealTrainBtn" class="btn-primary">Start AI Training</button>
+                        </div>
+                        <span id="trainStatus" class="muted"></span>
+                    </div>
+                    <div class="section">
+                        <label class="label">Progress</label>
+                        <div class="progress">
+                            <div id="trainProgressBar" class="progress__bar" style="width:0%"></div>
+                        </div>
+                        <div id="trainProgressText" class="muted">0%</div>
+                    </div>
+                    <div class="section">
+                        <div class="label">Artifact</div>
+                        <div id="trainArtifact" class="muted">—</div>
+                    </div>
+                </div>
+
+                <!-- Interaction Section (placeholder for Phase 1) -->
+                <div class="tabpanel" data-panel="interaction" role="tabpanel" aria-labelledby="tab-interaction">
+                    <div class="section row">
+                        <div class="col">
+                            <div class="group">
+                                <div class="label">Record audio (MediaRecorder)</div>
+                                <div class="controls">
+                                    <button id="recStartBtn" class="btn-secondary">Start</button>
+                                    <button id="recStopBtn" class="btn-secondary" disabled>Stop</button>
+                                    <span id="recStatus" class="muted">Idle</span>
+                                </div>
+                            </div>
+                            <div class="group">
+                                <div class="label">Recorded preview</div>
+                                <audio id="recordedPreview" controls preload="metadata"></audio>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="group">
+                                <label for="textPrompt" class="label">Text prompt</label>
+                                <textarea id="textPrompt" rows="4" placeholder="Type your question here..."></textarea>
+                            </div>
+                            <div class="group">
+                                <button id="submitInteractBtn" class="btn-primary">Send</button>
+                                <span id="submitStatus" class="muted"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Response Section (placeholder for Phase 1) -->
+                <div class="tabpanel" data-panel="response" role="tabpanel" aria-labelledby="tab-response">
+                    <div class="section">
+                        <div class="label">Response text</div>
+                        <div id="responseText" class="response-text"></div>
+                    </div>
+                    <div class="section">
+                        <div class="label">Response audio</div>
+                        <audio id="responseAudio" controls preload="metadata"></audio>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
