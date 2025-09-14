@@ -3,9 +3,9 @@ wheel
 fastapi==0.104.1
 uvicorn==0.24.0
 python-multipart==0.0.6
-transformers==4.35.0
+transformers==4.44.0
 torch==2.5.0
 torchaudio==2.6.0
-whisper
+openai-whisper
 numpy>=1.24.0
 gunicorn==21.2.0
