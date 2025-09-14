@@ -38,6 +38,16 @@ training_state = TrainingState()
 @app.on_event("startup")
 async def startup_event():
     print("Starting ATR Model server...")
+    
+    # Configure for Vercel if running on Vercel
+    if os.getenv("VERCEL"):
+        print("🚀 Running on Vercel - applying optimizations...")
+        try:
+            from .vercel_config import setup_vercel_environment
+            setup_vercel_environment()
+        except ImportError:
+            print("Vercel config not available, using default settings")
+    
     await _preload_whisper_model()
     
     # Try to load QA models if they exist

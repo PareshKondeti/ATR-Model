@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/main.py"
+    }
+  ],
+  "env": {
+    "PYTHONPATH": "/var/task",
+    "TRANSFORMERS_CACHE": "/tmp/transformers_cache",
+    "TORCH_HOME": "/tmp/torch_cache"
+  },
+  "functions": {
+    "backend/main.py": {
+      "maxDuration": 300
+    }
+  }
+}

@@ -1,0 +1,43 @@
+# Ignore large files and directories
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.gitignore
+README.md
+*.md
+.DS_Store
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Training data (will be created at runtime)
+training_data/
+uploads/
+
+# Model files (will be downloaded at runtime)
+piper/
+*.onnx
+*.bin
+*.safetensors
+
+# Temporary files
+*.tmp
+*.temp
