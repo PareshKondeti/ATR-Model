@@ -5,4 +5,4 @@ transformers==4.35.0
 torch==2.1.0
 whisper==1.1.10
 numpy==1.24.3
-pathlibgunicorn==21.2.0
+gunicorn==21.2.0
